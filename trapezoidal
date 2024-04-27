@@ -1,0 +1,20 @@
+trapezoidal
+import numpy as np 
+import matplotlib.pyplot as plt 
+
+def func(x): 
+    return x**2 
+
+def trapezoidal_rule(func, a, b, n): 
+    h = (b - a) / n 
+    x = np.linspace(a, b, n + 1) 
+    y = func(x) 
+    integral = h * (np.sum(y) - 0.5 * (y[0] + y[-1])) 
+    return integral 
+
+a, b = 0, 2
+true_value = 2.67  
+n_values = 10
+
+trapezoidal_result = trapezoidal_rule(func, a, b, n) 
+print(f"n={n}: Trapezoidal Result={trapezoidal_result:.4f}")
